@@ -17,7 +17,6 @@ public class ControladorUsuario {
     private ArrayList<Usuario> usuarios;
     private int usuarioLogado; 
     
-    
     public ControladorUsuario(ControladorPrincipal ctrlPrincipal){
         this.ctrlPrincipal = ctrlPrincipal;
         this.telaUsuario = new TelaUsuario(this);
@@ -70,11 +69,16 @@ public class ControladorUsuario {
     public void historicoUsuario(){
         Usuario usuario = usuarios.get(usuarioLogado);
         String nome = usuario.getNome();
+        if(usuario.getCpf().equals("123")){
+            ArrayList<Animal> adocao = usuario.getAdocao();
+            ArrayList<Animal> doacao = usuario.getDoacao();
+            telaUsuario.historicoSuperUsuario(nome, adocao, doacao, usuarios);
+        }else{
         ArrayList<Animal> adocao = usuario.getAdocao();
         ArrayList<Animal> doacao = usuario.getDoacao();
         telaUsuario.historico(nome, adocao, doacao);
+        }
     }
-
     public void telaPrincipal() {
         ctrlPrincipal.fazerLogin();
     }

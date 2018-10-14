@@ -120,5 +120,90 @@ public class TelaUsuario {
         System.out.println("");
         exibeCadastraUsuario();
     }
-    
+
+    public void historicoSuperUsuario(String nome, ArrayList<Animal> adocao, ArrayList<Animal> doacao, ArrayList<Usuario> usuarios) {
+ 
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("                      HISTORICO " + nome );
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("------------------------- ANIMAIS ADOTADOS ---------------------");
+        System.out.println("----------------------------------------------------------------");
+        if(adocao.isEmpty()){
+            System.out.println("");       
+            System.out.println("Você não adotou nenhum animal ainda");
+            System.out.println("");   
+        }else{
+            for (Animal pet : adocao){ 
+                 System.out.println("");
+                 System.out.println("Nome: " + pet.getNome());
+                 System.out.println("Idade: " + pet.getIdade());
+                 System.out.println("Sexo: " + pet.getNomeSexo(pet.getSexo()));
+             }
+        }    
+        System.out.println("");
+        System.out.println("------------------------- ANIMAIS DOADOS -----------------------");
+        System.out.println("----------------------------------------------------------------");
+         if(doacao.isEmpty()){
+            System.out.println("");       
+            System.out.println("Você não doou nenhum animal ainda");
+            System.out.println("");   
+        }else{
+            for (Animal pet : doacao){ 
+                 System.out.println("");
+                 System.out.println("Nome: " + pet.getNome());
+                 System.out.println("Idade: " + pet.getIdade());
+                 System.out.println("Sexo: " + pet.getNomeSexo(pet.getSexo()));
+            }  
+        }
+       System.out.println("");
+       System.out.println("----------------------------------------------------------------");
+       System.out.println("-----------------Historico Outros Clientes ---------------------");
+       System.out.println("----------------------------------------------------------------");
+       System.out.println("");
+       if(usuarios.isEmpty()){
+                            System.out.println("Sem mais nenhum registro");
+                    }else{
+                    for (Usuario usuario : usuarios){
+                        System.out.println("----------------------------------------------------------------");
+                        System.out.println("                      HISTORICO " + usuario.getNome() );
+                        System.out.println("----------------------------------------------------------------");
+                        System.out.println("CPF: "+ usuario.getCpf());
+                        ArrayList<Animal> pets = usuario.getAdocao();
+                         System.out.println("");
+                         System.out.println("----------------------- ANIMAIS ADOTADOS -----------------------");
+                         System.out.println("----------------------------------------------------------------");
+                             if(pets.isEmpty()){
+                                System.out.println("");       
+                                System.out.println("Não doou nenhum animal ainda");
+                                System.out.println(""); 
+                             }else{       
+                                for (Animal pet : pets){ 
+                                    System.out.println("");
+                                    System.out.println("Nome: " + pet.getNome());
+                                    System.out.println("Idade: " + pet.getIdade());
+                                    System.out.println("Sexo: " + pet.getNomeSexo(pet.getSexo()));
+                                }
+                        
+                            }       
+                    
+                    ArrayList<Animal> petsDocao = usuario.getDoacao();
+                         System.out.println("");
+                         System.out.println("------------------------- ANIMAIS DOADOS -----------------------");
+                         System.out.println("----------------------------------------------------------------");
+                             if(petsDocao.isEmpty()){
+                                System.out.println("");       
+                                System.out.println("Não doou nenhum animal ainda");
+                                System.out.println(""); 
+                             }else{       
+                                for (Animal pet : petsDocao){ 
+                                    System.out.println("");
+                                    System.out.println("Nome: " + pet.getNome());
+                                    System.out.println("Idade: " + pet.getIdade());
+                                    System.out.println("Sexo: " + pet.getNomeSexo(pet.getSexo()));
+                                }
+                        
+               }
+            }             
+        }
+    }
 }
