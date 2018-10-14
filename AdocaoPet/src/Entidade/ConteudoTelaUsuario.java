@@ -18,4 +18,8 @@ public class ConteudoTelaUsuario {
         this.senhaUsuario = senha;
     }
 
+    public void add(ConteudoTelaUsuario empacota) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

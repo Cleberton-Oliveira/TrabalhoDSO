@@ -4,6 +4,8 @@ package Entidade;
 public class Cachorro extends Animal{
       private int  raca;
 
+   
+
     
     
     public enum RACACACHORRO  {
@@ -23,6 +25,7 @@ public class Cachorro extends Animal{
 
    
     public Cachorro(String nome, int idade, int raca, int sexo) {
+        super(nome,sexo,idade);
         this.nome = nome;
         this.idade = idade;
         this.raca = raca;
@@ -30,22 +33,22 @@ public class Cachorro extends Animal{
     }
 
 
-      @Override
+
     public String getNome() {
         return nome;
     }
 
-      @Override
+
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-      @Override
+    
     public int getIdade() {
         return idade;
     }
 
-      @Override
+   
     public void setIdade(int idade) {
         this.idade = idade;
     }
@@ -58,12 +61,10 @@ public class Cachorro extends Animal{
         this.raca = raca;
     }
 
-      @Override
     public int getSexo() {
-        return sexo;
+       return sexo;
     }
-
-      @Override
+    
     public void setSexo(int sexo) {
         this.sexo = sexo;
     }

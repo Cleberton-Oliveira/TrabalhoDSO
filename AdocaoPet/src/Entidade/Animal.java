@@ -1,35 +1,33 @@
 
 package Entidade;
 
-abstract class Animal {
+public abstract class Animal {
     
     String nome;
     int sexo;
     int idade;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
+    public Animal(String nome, int sexo, int idade) {
         this.nome = nome;
-    }
-
-    public int getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(int sexo) {
         this.sexo = sexo;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
         this.idade = idade;
     }
 
+    public String getNome() {
+        return nome;
+    }
+    public int getIdade(){
+        return idade;
+    }
+    public int getSexo(){
+        return sexo;
+    }
 
+    public String getNomeSexo(int sexo){
+        if(sexo == 1){
+            return "Masculino";
+        }else{
+            return "Feminino";
+        }
+    }
 }

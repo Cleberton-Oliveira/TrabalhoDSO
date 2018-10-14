@@ -1,7 +1,9 @@
 package Telas;
 
 import Controlador.ControladorPrincipal;
-import Controlador.ControladorPet;
+import Entidade.ConteudoTelaUsuario;
+import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
 public class TelaPrincipal {
@@ -14,11 +16,16 @@ public class TelaPrincipal {
       
     }
 
-    
-    private int leInteiro() {
-        int inteiro = teclado.nextInt();
-        teclado.nextLine();
-        return inteiro;
+    private int leInteiro() throws InputMismatchException {
+
+        try {  
+           int inteiro = teclado.nextInt();
+            teclado.nextLine();
+            return inteiro;
+        }catch (InputMismatchException e){
+            ctrlPrincipal.fazerLogin();
+            throw new InputMismatchException();
+        }
     }
     
     public void exibeTelaLogin(){
@@ -45,7 +52,8 @@ public class TelaPrincipal {
         System.out.println("(1) Adotar um pet");
         System.out.println("(2) Doar um pet");
         System.out.println("(3) Conferir meu historico");
-        System.out.println("(4) Sair");
+        System.out.println("(4) Editar Dados");
+        System.out.println("(5) Sair");
         System.out.println("----------------------------------------------------------------");
         
         int opcao = leInteiro();
@@ -58,12 +66,19 @@ public class TelaPrincipal {
                 doarPet();
                 break;
              case 3:
-                ctrlPrincipal.historicoUsuarios();
+                ctrlPrincipal.historico();
                 break;
              case 4:
+                exibeEditarDados();
+                break;
+             case 5:
                 exibeTelaLogin();
-                break;   
+                break;
+              case 0:
+              
+                break;     
         }        
+             
     }
 
     private void adotarPet() {
@@ -74,7 +89,7 @@ public class TelaPrincipal {
         System.out.println("");
         System.out.println("(1) Dog");
         System.out.println("(2) Gato");
-        System.out.println("(3) Peixe");
+        System.out.println("(3) Passaro");
         
          int opcao = leInteiro();
          ctrlPrincipal.adotarPet(opcao);
@@ -89,7 +104,7 @@ public class TelaPrincipal {
         System.out.println("");
         System.out.println("(1) Dog");
         System.out.println("(2) Gato");
-        System.out.println("(3) Peixe");
+        System.out.println("(3) Passaro");
     
         int opcao = leInteiro();
          ctrlPrincipal.doarPet(opcao);
@@ -102,8 +117,45 @@ public class TelaPrincipal {
         System.out.println("----------------------------------------------------------------");
         exibeTelaPrincipal();
         
-
     }
+
+    private void exibeEditarDados() {
+        ConteudoTelaUsuario conteudoTela = new ConteudoTelaUsuario();
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("-------------------------- EDITAR DADOS ------------------------");
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("");
+        System.out.println("(1) Editar Nome");
+        System.out.println("(2) Editar CPF");
+        System.out.println("(3) Editar Senha");
+        System.out.println("(4) Volta Menu Principal");
+        
+         int opcao = leInteiro();
+        
+        switch(opcao){
+            case 1: 
+                System.out.println("Digite a novo nome: ");
+                String nome = teclado.nextLine();
+                ctrlPrincipal.mudaNome(nome);
+                break;
+            case 2:
+                System.out.println("Digite a novo CPF: ");
+                String cpf = teclado.nextLine();
+                ctrlPrincipal.mudaCpf(cpf);
+                break;
+             case 3:
+                System.out.println("Digite a nova senha: ");
+                String senha = teclado.nextLine();
+                ctrlPrincipal.mudaSenha(senha);
+                break;
+             case 4:
+                exibeTelaPrincipal();
+                break;
+            
+        }        
+    }
+    
+    
     
     
     

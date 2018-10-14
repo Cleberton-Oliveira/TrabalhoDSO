@@ -3,6 +3,7 @@ package Telas;
 import Controlador.ControladorPet;
 import Entidade.ConteudoTelaPet;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TelaPets {
@@ -17,9 +18,16 @@ public class TelaPets {
     }
     
     private int leInteiro() {
-        int inteiro = teclado.nextInt();
-        teclado.nextLine();
-        return inteiro;
+        try {  
+           int inteiro = teclado.nextInt();
+            teclado.nextLine();
+            return inteiro;
+        } catch (InputMismatchException e) {
+            System.out.println("Digite uma opção válida!");
+            ctrlPet.menuPrincipal();
+            teclado.nextLine();
+            return 0;
+        }    
     }
 
     public void adotaDog() {
@@ -41,7 +49,7 @@ public class TelaPets {
         System.out.println("(1) Masculino "); 
         System.out.println("(2) Feminino "); 
         int opcaoSexo = leInteiro();
-        enviarInformacaoAdocao(opcaoRaca, opcaoSexo);
+        enviarInformacaoAdocao(CACHORRO, opcaoRaca, opcaoSexo);
        
 
     }
@@ -53,17 +61,17 @@ public class TelaPets {
         System.out.println("");
         System.out.println("Qual a Raça de gato gostaria de adotar:");
         System.out.println("");
-        System.out.println("(1) Perça");
-        System.out.println("(2) Saames");
-        System.out.println("(3) Azul Russo");
-        System.out.println("(4) Ragdoll");
+        System.out.println("(1) Persa");
+        System.out.println("(2) Seames");
+        System.out.println("(3) Vira Lata");
+        System.out.println("(4) Azul Russo");
         int opcaoRaca = leInteiro();
         System.out.println("Qual sexo do gato:"); 
         System.out.println("");
         System.out.println("(1) Masculino "); 
         System.out.println("(2) Feminino "); 
         int opcaoSexo = leInteiro();
-        enviarInformacaoAdocao(opcaoRaca, opcaoSexo);
+        enviarInformacaoAdocao(GATO, opcaoRaca, opcaoSexo);
     }
 
     public void adotaPassaro() {
@@ -73,16 +81,18 @@ public class TelaPets {
         System.out.println("");
         System.out.println("Qual a especie de passaro gostaria de adotar:");
         System.out.println("");
-        System.out.println("(1) Canario");
+        System.out.println("(1) Cacatua");
         System.out.println("(2) Calopsita");
-        System.out.println("(3) Agapornis");
+        System.out.println("(3) Canario");
+        System.out.println("(4) Papagaio");
+        System.out.println("(5) Periquito");
         int opcaoRaca = leInteiro();
         System.out.println("Qual sexo do passaro:"); 
         System.out.println("");
         System.out.println("(1) Masculino "); 
         System.out.println("(2) Feminino "); 
         int opcaoSexo = leInteiro();
-        enviarInformacaoAdocao(opcaoRaca, opcaoSexo);
+        enviarInformacaoAdocao(PASSARO, opcaoRaca, opcaoSexo);
         
     }
 
@@ -124,8 +134,8 @@ public class TelaPets {
         System.out.println("--------------------------DOÇÃO DE GATO-------------------------");
         System.out.println("----------------------------------------------------------------");
         System.out.println("");
+        System.out.print("Qual o nome do seu PET: ");
         conteudoTela.nomePet = teclado.nextLine();
-        String nome = teclado.nextLine();
         System.out.println("----------------------------------------------------------------");
         System.out.println("");
         System.out.print("Qual idade do seu PET: ");
@@ -133,10 +143,10 @@ public class TelaPets {
         System.out.println("----------------------------------------------------------------");
         System.out.println("Qual a Raça de gato gostaria de doar:");
         System.out.println("");
-        System.out.println("(1) Perça");
-        System.out.println("(2) Saames");
-        System.out.println("(3) Azul Russo");
-        System.out.println("(4) Ragdoll");
+        System.out.println("(1) Persa");
+        System.out.println("(2) Seames");
+        System.out.println("(3) Vira Lata");
+        System.out.println("(4) Azul Russo");
         conteudoTela.racaPet = leInteiro();
         System.out.println("----------------------------------------------------------------");
         System.out.println("Qual sexo do Gato:"); 
@@ -163,9 +173,11 @@ public class TelaPets {
         System.out.println("----------------------------------------------------------------");
         System.out.println("Qual a especie de passaro gostaria de doar:");
         System.out.println("");
-        System.out.println("(1) Canario");
+        System.out.println("(1) Cacatua");
         System.out.println("(2) Calopsita");
-        System.out.println("(3) Agapornis");
+        System.out.println("(3) Canario");
+        System.out.println("(4) Papagaio");
+        System.out.println("(5) Periquito");
         conteudoTela.racaPet = leInteiro();
         System.out.println("----------------------------------------------------------------");
         System.out.println("Qual sexo do Passaro:"); 
@@ -178,8 +190,8 @@ public class TelaPets {
     
      
 
-    public void enviarInformacaoAdocao(int opcaoRaca, int opcaoSexo) {
-        ctrlPet.adocao(opcaoRaca, opcaoSexo);
+    public void enviarInformacaoAdocao(int pet,int opcaoRaca, int opcaoSexo) {
+        ctrlPet.adocao(pet, opcaoRaca, opcaoSexo);
     }
 
     private void enviarInformacaoCadastroPet(int pet, ConteudoTelaPet conteudoTela) {
@@ -187,38 +199,43 @@ public class TelaPets {
             case CACHORRO: 
                 ctrlPet.cadastroDog(conteudoTela);
                 break;
-            case 2:
+            case GATO:
                 ctrlPet.cadastroGato(conteudoTela);
                 break;
-             case 3:
+             case PASSARO:
                 ctrlPet.cadastroPassaro(conteudoTela);
                 break;    
         }
     }
 
-    public void mostraListaPets(ArrayList<ConteudoTelaPet> listagemPets) {
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("                        Listagem Cachorros");
-        System.out.println("----------------------------------------------------------------");
-        int numero = 1;
-        
-        for (ConteudoTelaPet conteudoTela : listagemPets){
-            System.out.println("");
-            System.out.println("Registro do PET: " + numero);
-            System.out.println("nome: " + conteudoTela.nomePet);
-            System.out.println("Idade: " + conteudoTela.idadePet);
-            System.out.println("Sexo: " + conteudoTela.sexoPet);
-            System.out.println("Raça: " + conteudoTela.racaPet);
-            System.out.println("");
-            System.out.println("----------------------------------------------------------------");
-            numero++;
-            
-            
-    }
-        gostariaDeAdotar();
-   }   
+    public void mostraListaPets(int pet, ArrayList<ConteudoTelaPet> listagemPets) {
+ 
+                 System.out.println("----------------------------------------------------------------");
+                 System.out.println("                        Listagem PET");
+                 System.out.println("----------------------------------------------------------------");
+                 int numero = 1;
+                    if(listagemPets.isEmpty()){
+                            System.out.println("Não temos cachorro dessa raça e sexo no momento");
+                            ctrlPet.menuPrincipal();
+                    }else{
+                    for (ConteudoTelaPet conteudoTela : listagemPets){
 
-    private void gostariaDeAdotar() {
+
+                            System.out.println("");
+                            System.out.println("Registro do PET: " + numero);
+                            System.out.println("nome: " + conteudoTela.nomePet);
+                            System.out.println("Idade: " + conteudoTela.idadePet);
+                            System.out.println("");
+                            System.out.println("----------------------------------------------------------------");
+                            numero++;
+                            
+                        } 
+                    gostariaDeAdotar(pet);
+        }
+        
+    }   
+
+    private void gostariaDeAdotar(int pet) {
             System.out.println("Qual pet gostaria de adotar?");
             System.out.println("----------------------------------------------------------------");
             System.out.println("Didite o registro do PET ou digite 0 para não adotar nenhum:");
@@ -231,7 +248,7 @@ public class TelaPets {
               ctrlPet.menuPrincipal();
             }else{
                 System.out.println("Pet Adotado Com Sucesso");
-                ctrlPet.menuPrincipal();
+                ctrlPet.petAdotado(opcao, pet);
                 
                     
             }
