@@ -93,6 +93,7 @@ public class TelaUsuario {
                  System.out.println("Nome: " + pet.getNome());
                  System.out.println("Idade: " + pet.getIdade());
                  System.out.println("Sexo: " + pet.getNomeSexo(pet.getSexo()));
+                 System.out.println("Especie: " + pet.getEspecie());
              }
         }    
         System.out.println("");
@@ -108,6 +109,7 @@ public class TelaUsuario {
                  System.out.println("Nome: " + pet.getNome());
                  System.out.println("Idade: " + pet.getIdade());
                  System.out.println("Sexo: " + pet.getNomeSexo(pet.getSexo()));
+                 System.out.println("Especie: " + pet.getEspecie());
             }  
         }
     }
@@ -138,6 +140,7 @@ public class TelaUsuario {
                  System.out.println("Nome: " + pet.getNome());
                  System.out.println("Idade: " + pet.getIdade());
                  System.out.println("Sexo: " + pet.getNomeSexo(pet.getSexo()));
+                 System.out.println("Especie: " + pet.getEspecie());
              }
         }    
         System.out.println("");
@@ -153,6 +156,7 @@ public class TelaUsuario {
                  System.out.println("Nome: " + pet.getNome());
                  System.out.println("Idade: " + pet.getIdade());
                  System.out.println("Sexo: " + pet.getNomeSexo(pet.getSexo()));
+                 System.out.println("Especie: " + pet.getEspecie());
             }  
         }
        System.out.println("");
@@ -182,6 +186,7 @@ public class TelaUsuario {
                                     System.out.println("Nome: " + pet.getNome());
                                     System.out.println("Idade: " + pet.getIdade());
                                     System.out.println("Sexo: " + pet.getNomeSexo(pet.getSexo()));
+                                    System.out.println("Especie: " + pet.getEspecie());
                                 }
                         
                             }       
@@ -200,6 +205,7 @@ public class TelaUsuario {
                                     System.out.println("Nome: " + pet.getNome());
                                     System.out.println("Idade: " + pet.getIdade());
                                     System.out.println("Sexo: " + pet.getNomeSexo(pet.getSexo()));
+                                    System.out.println("Especie: " + pet.getEspecie());
                                 }
                         
                }

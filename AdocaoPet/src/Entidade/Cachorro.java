@@ -2,9 +2,10 @@ package Entidade;
 
 
 public class Cachorro extends Animal{
-      private int  raca;
+      private int  raca; 
 
-   
+    
+
 
     
     
@@ -21,8 +22,6 @@ public class Cachorro extends Animal{
             id = idRacaCachorro;
         }
     }
-
-
    
     public Cachorro(String nome, int idade, int raca, int sexo) {
         super(nome,sexo,idade);
@@ -68,4 +67,23 @@ public class Cachorro extends Animal{
     public void setSexo(int sexo) {
         this.sexo = sexo;
     }
+    @Override
+    public String getEspecie() {
+        int id = raca;    
+        switch(id){
+              case 1:
+                  return "Pastor Alemao";
+              case 2:
+                  return "Labrador";
+              case 3:
+                  return "Buldogle";
+              case 4:
+                  return "Beagle";
+              case 5:
+                  return "Poodle";                 
+          }
+          return "Não existe esse codigo";
+    }
+
+    
 }

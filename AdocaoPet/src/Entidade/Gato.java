@@ -4,10 +4,7 @@ package Entidade;
 public class Gato extends Animal{
       private int  raca;
 
-    
 
-    
-    
     public enum RACAGATO  {
         PERSA(1),
         SIAMES(2),
@@ -65,5 +62,20 @@ public class Gato extends Animal{
   
     public void setSexo(int sexo) {
         this.sexo = sexo;
+    } 
+     @Override
+    public String getEspecie() {
+        int id = raca;    
+        switch(id){
+              case 1:
+                  return "Persa";
+              case 2:
+                  return "Siames";
+              case 3:
+                  return "Vira Lata";
+              case 4:
+                  return "AzulRusso";               
+          }
+          return "Não existe esse codigo";
     }
 }

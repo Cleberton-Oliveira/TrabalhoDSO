@@ -67,4 +67,22 @@ public class Passaro extends Animal{
     public void setSexo(int sexo) {
         this.sexo = sexo;
     }
+    
+     @Override
+    public String getEspecie() {
+        int id = raca;   
+        switch(id){
+              case 1:
+                  return "Cacatua";
+              case 2:
+                  return "Calopsita";
+              case 3:
+                  return "Canario";
+              case 4:
+                  return "Papagaio";
+              case 5:
+                  return "Periquito";                 
+          }
+          return "Não existe esse codigo";
+    }
 }

@@ -9,6 +9,8 @@ public class Usuario {
     private String login;
     private ArrayList<Animal> adocao;
     private ArrayList<Animal> doacao;
+    private String especie;
+    private String nomeRaca;
 
 
 
@@ -19,6 +21,8 @@ public class Usuario {
         this.login = cpf+senha; 
         this.adocao = new ArrayList<>();
         this.doacao = new ArrayList<>();
+        this.especie = especie;
+        this.nomeRaca = nomeRaca;
     }
 
     public String getNome() {
@@ -50,8 +54,8 @@ public class Usuario {
         return login;
     }
 
-    public void registroCachorro(Cachorro cachorro) {
-        this.adocao.add(cachorro);
+    public void registroCachorro(Cachorro cachorro) {  
+        this.adocao.add(cachorro);     
     }
     public void registroGato(Gato gato) {
         this.adocao.add(gato);
@@ -77,5 +81,5 @@ public class Usuario {
      public ArrayList<Animal> getDoacao() {
         return doacao;
     }
-
+    
 }

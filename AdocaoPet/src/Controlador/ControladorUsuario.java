@@ -75,7 +75,7 @@ public class ControladorUsuario {
             telaUsuario.historicoSuperUsuario(nome, adocao, doacao, usuarios);
         }else{
         ArrayList<Animal> adocao = usuario.getAdocao();
-        ArrayList<Animal> doacao = usuario.getDoacao();
+        ArrayList<Animal> doacao = usuario.getDoacao();        
         telaUsuario.historico(nome, adocao, doacao);
         }
     }

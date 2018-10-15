@@ -6,6 +6,7 @@ public abstract class Animal {
     String nome;
     int sexo;
     int idade;
+    int raca;
 
     public Animal(String nome, int sexo, int idade) {
         this.nome = nome;
@@ -22,12 +23,14 @@ public abstract class Animal {
     public int getSexo(){
         return sexo;
     }
-
+    
+    
     public String getNomeSexo(int sexo){
         if(sexo == 1){
             return "Masculino";
         }else{
             return "Feminino";
-        }
-    }
+        } 
+    }     
+    public abstract String getEspecie();       
 }
