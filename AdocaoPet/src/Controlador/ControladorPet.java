@@ -25,6 +25,15 @@ public class ControladorPet {
         this.passaros = new ArrayList<>();
     }
     
+    public void addCachorro(Cachorro cachorro){
+        cachorros.add(cachorro);
+    }
+    public void addGato(Gato gato){
+        gatos.add(gato);
+    }
+    public void addPassaro(Passaro passaro){
+        passaros.add(passaro);
+    }
     
     public void adotarPet(int opcao) {
           switch(opcao){

@@ -27,6 +27,9 @@ public class ControladorPrincipal {
     public ControladorUsuario getCtrlUsuario(){
         return this.ctrlUsuario;
     } 
+     public ControladorPet getCtrlPet(){
+        return this.ctrlPet;
+    } 
     
     public void iniciaPrograma(){
         telaPrincipal.exibeTelaLogin();
@@ -102,6 +105,10 @@ public class ControladorPrincipal {
     public ArrayList<Animal> adocoesUsuario(){
        ArrayList<Animal> adocoes = ctrlUsuario.enviaListaAdocao();
        return adocoes;
+    }
+
+    public void apagaConta() {
+        ctrlUsuario.apagaConta();
     }
     
 }

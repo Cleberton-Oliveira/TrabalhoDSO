@@ -54,6 +54,8 @@ public class TelaPrincipal {
         System.out.println("(3) Conferir meu historico");
         System.out.println("(4) Editar Dados");
         System.out.println("(5) Sair");
+        System.out.println("(6) Apagar Conta");
+        
         System.out.println("----------------------------------------------------------------");
         
         int opcao = leInteiro();
@@ -74,6 +76,9 @@ public class TelaPrincipal {
              case 5:
                 exibeTelaLogin();
                 break;
+             case 6:
+                ctrlPrincipal.apagaConta();
+                break;   
              case 0:
                 erroDigitacao();
                 break; 

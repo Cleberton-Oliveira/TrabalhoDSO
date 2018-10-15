@@ -99,6 +99,12 @@ public class ControladorUsuario {
     }
         
     public void mudarCpf(String cpf){
+      for(Usuario usuarios: usuarios){
+            if(cpf.equals(usuarios.getCpf())){
+            telaUsuario.cpfNaoPodeMudar();
+            break;
+            }
+        }
       Usuario usuario = usuarios.get(usuarioLogado);
       usuario.setCpf(cpf);
       ctrlPrincipal.fazerLogin();
@@ -137,21 +143,10 @@ public class ControladorUsuario {
         Usuario usuario = usuarios.get(usuarioLogado);    
         return usuario.getAdocao();
     }
-    
-    public void doaCachorroSuperUsuario(Cachorro cachorro) {
-        Usuario usuario = usuarios.get(0);
-        usuario.doaCachorro(cachorro);
-    }
 
-    public void doaGatoSuperUsuario(Gato gato) {
-        Usuario usuario = usuarios.get(0);
-        usuario.doaGato(gato);
-    }
-
-    public void doaPassaroSuperUsuario(Passaro passaro) {
-        Usuario usuario = usuarios.get(0);
-        usuario.doaPassaro(passaro);
-    }
-    
-    
+    public void apagaConta(){
+    Usuario usuario = usuarios.get(usuarioLogado);
+    usuarios.remove(usuario);
+    ctrlPrincipal.iniciaPrograma();
+    }  
 }

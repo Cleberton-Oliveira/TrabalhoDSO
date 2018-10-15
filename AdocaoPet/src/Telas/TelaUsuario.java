@@ -122,7 +122,9 @@ public class TelaUsuario {
     }
 
     public void historicoSuperUsuario(String nome, ArrayList<Animal> adocao, ArrayList<Animal> doacao, ArrayList<Usuario> usuarios) {
- 
+        
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("                      HISTORICO SUPER USUARIO");
         System.out.println("----------------------------------------------------------------");
         System.out.println("                      HISTORICO " + nome );
         System.out.println("----------------------------------------------------------------");
@@ -209,5 +211,14 @@ public class TelaUsuario {
                }
             }             
         }
+    }
+
+    public void cpfNaoPodeMudar() {
+        System.out.println("----------------------- Erro ao Cadastrar ----------------------");
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("");
+        System.out.println("Já existe Usuario cadastrado com esse CPF");
+        System.out.println("");
+        ctrlUsuario.telaPrincipal();
     }
 }
