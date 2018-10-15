@@ -17,15 +17,15 @@ public class TelaPrincipal {
     }
 
     private int leInteiro() throws InputMismatchException {
-
         try {  
-           int inteiro = teclado.nextInt();
-            teclado.nextLine();
-            return inteiro;
+          int inteiro = teclado.nextInt();
+          teclado.nextLine();
+          return inteiro;
+
         }catch (InputMismatchException e){
-            ctrlPrincipal.fazerLogin();
-            throw new InputMismatchException();
-        }
+          System.out.println("Digite uma opção válida!" + e.getMessage()); 
+          return 0;
+        }   
     }
     
     public void exibeTelaLogin(){
@@ -74,9 +74,10 @@ public class TelaPrincipal {
              case 5:
                 exibeTelaLogin();
                 break;
-              case 0:
-              
-                break;     
+             case 0:
+                erroDigitacao();
+                break; 
+                      
         }        
              
     }
@@ -153,7 +154,13 @@ public class TelaPrincipal {
                 break;
             
         }        
-    } 
+    }
+
+    private void erroDigitacao() {
+        System.out.println("Devido ao erro de digitação você voltara ao Menu Principal");
+        teclado.nextLine();
+        exibeTelaPrincipal();
+    }
     
     
 }

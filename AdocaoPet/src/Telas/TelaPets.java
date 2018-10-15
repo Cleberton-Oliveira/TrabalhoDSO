@@ -23,11 +23,9 @@ public class TelaPets {
             teclado.nextLine();
             return inteiro;
         } catch (InputMismatchException e) {
-            System.out.println("Digite uma opção válida!");
-            ctrlPet.menuPrincipal();
-            teclado.nextLine();
+            System.out.println("Digite uma opção válida!" + e.getMessage());
             return 0;
-        }    
+        }        
     }
 
     public void adotaDog() {
@@ -215,7 +213,7 @@ public class TelaPets {
                  System.out.println("----------------------------------------------------------------");
                  int numero = 1;
                     if(listagemPets.isEmpty()){
-                            System.out.println("Não temos cachorro dessa raça e sexo no momento");
+                            System.out.println("Não temos animais dessa raça e sexo no momento");
                             ctrlPet.menuPrincipal();
                     }else{
                     for (ConteudoTelaPet conteudoTela : listagemPets){
@@ -243,17 +241,55 @@ public class TelaPets {
             int opcao = leInteiro();
             if(opcao == 0){
               System.out.println("----------------------");
-              System.out.println("Então nao adota cuzao");
+              System.out.println("Nenhum animal adotado");
               System.out.println("----------------------");
               ctrlPet.menuPrincipal();
-            }else{
-                System.out.println("Pet Adotado Com Sucesso");
-                ctrlPet.petAdotado(opcao, pet);
-                
-                    
+            }else{            
+                ctrlPet.petAdotado(opcao, pet);       
             }
-                
-            
-           
+    }
+        public void exibeMaximoAdocao() {
+        System.out.println("");
+        System.out.println("Você ja adotou o numero maximo de animais");
+        System.out.println("");
+    }
+
+    public void exibeMaximoEspecie(int pet) {
+       switch(pet){
+            case CACHORRO: 
+                System.out.println("");
+                System.out.println("Numero maximo de adoção de cachorros dessa especie");
+                System.out.println("");
+                break;
+            case GATO:
+                System.out.println("");
+                System.out.println("Numero maximo de adoção de gatos dessa especie");
+                System.out.println("");
+                break;
+             case PASSARO:
+                System.out.println("");
+                System.out.println("Numero maximo de adoção de passaros dessa especie");
+                System.out.println("");
+                break;    
+        }
+    }
+        public void exibeSucessoAdocao(int pet) {
+       switch(pet){
+            case CACHORRO: 
+                System.out.println("");
+                System.out.println("Cachorro Adotado com sucesso");
+                System.out.println("");
+                break;
+            case GATO:
+                System.out.println("");
+                System.out.println("Gato Adotado com sucesso");
+                System.out.println("");
+                break;
+             case PASSARO:
+                System.out.println("");
+                System.out.println("Passaro Adotado com sucesso");
+                System.out.println("");
+                break;    
+        }
     }
 }

@@ -2,7 +2,6 @@ package Controlador;
 
 import Entidade.Animal;
 import Entidade.Cachorro;
-import Entidade.ConteudoTelaPet;
 import Entidade.ConteudoTelaUsuario;
 import Entidade.Gato;
 import Entidade.Passaro;
@@ -101,11 +100,10 @@ public class ControladorUsuario {
       ctrlPrincipal.fazerLogin();
     }
     
-    public void adocaoCachorro(Cachorro cachorro) {
+    public void adocaoCachorro(Cachorro cachorro){
         Usuario usuario = usuarios.get(usuarioLogado);
         usuario.registroCachorro(cachorro);
     }
-    
     public void adocaoGato(Gato gato) {
         Usuario usuario = usuarios.get(usuarioLogado);
         usuario.registroGato(gato);
@@ -131,5 +129,8 @@ public class ControladorUsuario {
         usuario.doaPassaro(passaro);
     }
    
-    
+    public ArrayList<Animal> enviaListaAdocao(){
+        Usuario usuario = usuarios.get(usuarioLogado);    
+        return usuario.getAdocao();
+    }
 }

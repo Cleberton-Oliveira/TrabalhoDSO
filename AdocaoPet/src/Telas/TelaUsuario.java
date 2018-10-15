@@ -21,12 +21,10 @@ public class TelaUsuario {
         private int leInteiro() {
         try {  
            int inteiro = teclado.nextInt();
-            teclado.nextLine();
-            return inteiro;
-        } catch (NumberFormatException e) {
+           teclado.nextLine();
+           return inteiro;
+        } catch (InputMismatchException e) {
             System.out.println("Digite uma opção válida!");
-            ctrlUsuario.telaPrincipal();
-            teclado.nextLine();
             return 0;
         }  
     }
@@ -161,7 +159,7 @@ public class TelaUsuario {
         }
        System.out.println("");
        System.out.println("----------------------------------------------------------------");
-       System.out.println("-----------------Historico Outros Clientes ---------------------");
+       System.out.println("-----------------Historico Todos Clientes ---------------------");
        System.out.println("----------------------------------------------------------------");
        System.out.println("");
        if(usuarios.isEmpty()){

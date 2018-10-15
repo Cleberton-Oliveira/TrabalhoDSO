@@ -1,14 +1,11 @@
 package Controlador;
 
-import Controlador.ControladorUsuario;
-import Telas.TelaPets;
 import Telas.TelaPrincipal;
-import Controlador.ControladorPet;
+import Entidade.Animal;
 import Entidade.Cachorro;
-import Entidade.ConteudoTelaPet;
-import Entidade.ConteudoTelaUsuario;
 import Entidade.Gato;
 import Entidade.Passaro;
+import java.util.ArrayList;
 
 
 public class ControladorPrincipal {
@@ -98,7 +95,11 @@ public class ControladorPrincipal {
     }
 
     public void doaPassaro(Passaro passaro) {
-   ctrlUsuario.doaPassaro(passaro);   
+        ctrlUsuario.doaPassaro(passaro);   
     }
-
+    public ArrayList<Animal> adocoesUsuario(){
+       ArrayList<Animal> adocoes = ctrlUsuario.enviaListaAdocao();
+       return adocoes;
+    }
+    
 }

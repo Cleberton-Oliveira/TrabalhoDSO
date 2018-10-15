@@ -9,8 +9,6 @@ public class Usuario {
     private String login;
     private ArrayList<Animal> adocao;
     private ArrayList<Animal> doacao;
-    private String especie;
-    private String nomeRaca;
 
 
 
@@ -21,8 +19,6 @@ public class Usuario {
         this.login = cpf+senha; 
         this.adocao = new ArrayList<>();
         this.doacao = new ArrayList<>();
-        this.especie = especie;
-        this.nomeRaca = nomeRaca;
     }
 
     public String getNome() {

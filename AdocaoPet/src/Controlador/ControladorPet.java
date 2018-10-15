@@ -1,5 +1,6 @@
 package Controlador;
 
+import Entidade.Animal;
 import Entidade.ConteudoTelaPet;
 import Entidade.Cachorro;
 import Entidade.Gato;
@@ -139,28 +140,62 @@ public class ControladorPet {
     public void menuPrincipal() {
         ctrlPrincipal.fazerLogin();
     }
+    
+    public ArrayList<Animal> adocoesUsuario(){
+       ArrayList<Animal> adocoes = ctrlPrincipal.adocoesUsuario();
+       return adocoes;
+    }
 
-    public void petAdotado(int opcao, int pet) {
-                switch(pet){
+    public void petAdotado(int opcao, int pet){
+        ArrayList<Animal> animal = adocoesUsuario();
+        if(adocoesUsuario().size() > 4){
+            telaPets.exibeMaximoAdocao();             
+        }else{        
+        switch(pet){
             case CACHORRO:
                 Cachorro cachorro = cachorros.get(opcao - 1);
-                ctrlPrincipal.adocaoCachorro(cachorro);    
-                cachorros.remove(opcao - 1);
-                menuPrincipal();
-                break;
+                    for(Animal adocao: animal){
+                        if(adocao.getEspecie() == cachorro.getEspecie()){
+                            telaPets.exibeMaximoEspecie(pet);
+                            menuPrincipal();
+                            break;
+                        }
+                    }
+                    ctrlPrincipal.adocaoCachorro(cachorro);    
+                    cachorros.remove(opcao - 1);
+                    telaPets.exibeSucessoAdocao(pet);
+                    menuPrincipal();   
+                    break;       
             case GATO:
                 Gato gato = gatos.get(opcao - 1);
+                for(Animal adocao: animal){
+                        if(adocao.getEspecie() == gato.getEspecie()){
+                            telaPets.exibeMaximoEspecie(pet);
+                            menuPrincipal();
+                            break;
+                        }
+                    }
                 ctrlPrincipal.adocaoGato(gato);    
                 gatos.remove(opcao - 1);
+                telaPets.exibeSucessoAdocao(pet);
                 menuPrincipal();
                 break;
-             case PASSARO:
+            case PASSARO:
                 Passaro passaro = passaros.get(opcao - 1);
+                 for(Animal adocao: animal){
+                        if(adocao.getEspecie() == passaro.getEspecie()){
+                            telaPets.exibeMaximoEspecie(pet);
+                            menuPrincipal();
+                            break;
+                        }
+                    }
                 ctrlPrincipal.adocaoPassaro(passaro);    
                 passaros.remove(opcao - 1);
+                telaPets.exibeSucessoAdocao(pet);
                 menuPrincipal();
                 break;  
+            }
         }
+       menuPrincipal();
     }
-    
 }
