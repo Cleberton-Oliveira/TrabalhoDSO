@@ -42,7 +42,11 @@ public class ControladorUsuario {
         }
         telaUsuario.erroLogin();
     }
-
+    
+    public void addUsuario(Usuario usuario){
+        usuarios.add(usuario);
+    }
+    
     public void incluiUsuario(ConteudoTelaUsuario conteudoTela) {
         String cpf = conteudoTela.cpfUsuario;
         for(Usuario usuario: usuarios){

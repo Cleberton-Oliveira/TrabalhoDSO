@@ -24,7 +24,9 @@ public class ControladorPrincipal {
         this.ctrlPet = new ControladorPet(this);
 
     }
-    
+    public ControladorUsuario getCtrlUsuario(){
+        return this.ctrlUsuario;
+    } 
     
     public void iniciaPrograma(){
         telaPrincipal.exibeTelaLogin();
