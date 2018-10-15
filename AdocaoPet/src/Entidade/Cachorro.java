@@ -82,7 +82,7 @@ public class Cachorro extends Animal{
               case 5:
                   return "Poodle";                 
           }
-          return "Não existe esse codigo";
+          return "Erro ao cadastrar Cachorro";
     }
 
     

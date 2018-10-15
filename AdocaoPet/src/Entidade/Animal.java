@@ -28,9 +28,10 @@ public abstract class Animal {
     public String getNomeSexo(int sexo){
         if(sexo == 1){
             return "Masculino";
-        }else{
+        }else  if(sexo == 2){
             return "Feminino";
         } 
+        return "Erro ao tentar cadastrar esse animal";
     }     
     public abstract String getEspecie();       
 }

@@ -83,6 +83,6 @@ public class Passaro extends Animal{
               case 5:
                   return "Periquito";                 
           }
-          return "Não existe esse codigo";
+          return "Erro ao cadastrar Passaro";
     }
 }

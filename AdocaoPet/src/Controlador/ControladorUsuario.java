@@ -137,4 +137,21 @@ public class ControladorUsuario {
         Usuario usuario = usuarios.get(usuarioLogado);    
         return usuario.getAdocao();
     }
+    
+    public void doaCachorroSuperUsuario(Cachorro cachorro) {
+        Usuario usuario = usuarios.get(0);
+        usuario.doaCachorro(cachorro);
+    }
+
+    public void doaGatoSuperUsuario(Gato gato) {
+        Usuario usuario = usuarios.get(0);
+        usuario.doaGato(gato);
+    }
+
+    public void doaPassaroSuperUsuario(Passaro passaro) {
+        Usuario usuario = usuarios.get(0);
+        usuario.doaPassaro(passaro);
+    }
+    
+    
 }

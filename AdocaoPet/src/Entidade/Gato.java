@@ -76,6 +76,6 @@ public class Gato extends Animal{
               case 4:
                   return "AzulRusso";               
           }
-          return "Não existe esse codigo";
+          return "Erro ao cadastrar Gato";
     }
 }
