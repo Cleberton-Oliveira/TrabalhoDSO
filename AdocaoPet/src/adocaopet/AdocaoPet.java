@@ -7,10 +7,7 @@ import Entidade.Passaro;
 import Entidade.Usuario;
 
 public class AdocaoPet {
-        
-    
     public static void main(String[] args) {
-        ControladorPrincipal ctrlPrincipal =  new ControladorPrincipal();
         Cachorro bidu = new Cachorro("Bidu", 12, 5, 1);
         Cachorro rex = new Cachorro("Rex", 2, 1, 1);
         Cachorro toto = new Cachorro("Toto", 7, 1, 1);
@@ -25,21 +22,21 @@ public class AdocaoPet {
         Passaro piupui = new Passaro("Piu Piu", 8, 3, 1);
         Passaro canarinha = new Passaro("Canarionha", 3, 3, 2);  
         Usuario superusuario = new Usuario("Cleberton", "123", "123");
-        ctrlPrincipal.getCtrlUsuario().addUsuario(superusuario);
-        ctrlPrincipal.getCtrlPet().addCachorro(bidu);
-        ctrlPrincipal.getCtrlPet().addCachorro(rex);
-        ctrlPrincipal.getCtrlPet().addCachorro(toto);
-        ctrlPrincipal.getCtrlPet().addCachorro(laica);
-        ctrlPrincipal.getCtrlPet().addGato(chico);
-        ctrlPrincipal.getCtrlPet().addGato(gatolina);
-        ctrlPrincipal.getCtrlPet().addGato(chico);
-        ctrlPrincipal.getCtrlPet().addGato(roberval);
-        ctrlPrincipal.getCtrlPet().addPassaro(chitao);
-        ctrlPrincipal.getCtrlPet().addPassaro(gerson);
-        ctrlPrincipal.getCtrlPet().addPassaro(etvaldo);
-        ctrlPrincipal.getCtrlPet().addPassaro(piupui);
-        ctrlPrincipal.getCtrlPet().addPassaro(canarinha);
-        ctrlPrincipal.iniciaPrograma(); 
+        ControladorPrincipal.getInstancia().getCtrlUsuario().addUsuario(superusuario);
+        ControladorPrincipal.getInstancia().getCtrlPet().addCachorro(bidu);
+        ControladorPrincipal.getInstancia().getCtrlPet().addCachorro(rex);
+        ControladorPrincipal.getInstancia().getCtrlPet().addCachorro(toto);
+        ControladorPrincipal.getInstancia().getCtrlPet().addCachorro(laica);
+        ControladorPrincipal.getInstancia().getCtrlPet().addGato(chico);
+        ControladorPrincipal.getInstancia().getCtrlPet().addGato(gatolina);
+        ControladorPrincipal.getInstancia().getCtrlPet().addGato(chico);
+        ControladorPrincipal.getInstancia().getCtrlPet().addGato(roberval);
+        ControladorPrincipal.getInstancia().getCtrlPet().addPassaro(chitao);
+        ControladorPrincipal.getInstancia().getCtrlPet().addPassaro(gerson);
+        ControladorPrincipal.getInstancia().getCtrlPet().addPassaro(etvaldo);
+        ControladorPrincipal.getInstancia().getCtrlPet().addPassaro(piupui);
+        ControladorPrincipal.getInstancia().getCtrlPet().addPassaro(canarinha);
+        ControladorPrincipal.getInstancia().iniciaPrograma(); 
     }
     
 }

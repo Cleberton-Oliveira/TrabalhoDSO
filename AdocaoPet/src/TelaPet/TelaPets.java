@@ -1,4 +1,4 @@
-package Telas;
+package TelaPet;
 
 import Controlador.ControladorPet;
 import Entidade.ConteudoTelaPet;
@@ -47,7 +47,7 @@ public class TelaPets {
         System.out.println("(1) Masculino "); 
         System.out.println("(2) Feminino "); 
         int opcaoSexo = leInteiro();
-        enviarInformacaoAdocao(CACHORRO, opcaoRaca, opcaoSexo);
+//        enviarInformacaoAdocao(CACHORRO, opcaoRaca, opcaoSexo);
        
 
     }
@@ -69,7 +69,7 @@ public class TelaPets {
         System.out.println("(1) Masculino "); 
         System.out.println("(2) Feminino "); 
         int opcaoSexo = leInteiro();
-        enviarInformacaoAdocao(GATO, opcaoRaca, opcaoSexo);
+//        enviarInformacaoAdocao(GATO, opcaoRaca, opcaoSexo);
     }
 
     public void adotaPassaro() {
@@ -90,121 +90,121 @@ public class TelaPets {
         System.out.println("(1) Masculino "); 
         System.out.println("(2) Feminino "); 
         int opcaoSexo = leInteiro();
-        enviarInformacaoAdocao(PASSARO, opcaoRaca, opcaoSexo);
+//        enviarInformacaoAdocao(PASSARO, opcaoRaca, opcaoSexo);
         
     }
 
-    public void doarDog() {
-        ConteudoTelaPet conteudoTela = new ConteudoTelaPet();
-        int pet = 1;
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("--------------------------DOAÇÃO DE CÃO-------------------------");
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("");
-        System.out.print("Qual o nome do seu PET: ");
-        conteudoTela.nomePet = teclado.nextLine();
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("");
-        System.out.print("Qual idade do seu PET: ");
-        conteudoTela.idadePet = leInteiro();
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("Qual a raça de cachorro gostaria de doar:");
-        System.out.println("");
-        System.out.println("(1) Pastor Alemão");
-        System.out.println("(2) Labrador");
-        System.out.println("(3) Buldogle");
-        System.out.println("(4) Beagle");
-        System.out.println("(5) Poodle");
-        conteudoTela.racaPet = leInteiro();
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("Qual sexo do Cão:"); 
-        System.out.println("");
-        System.out.println("(1) Masculino "); 
-        System.out.println("(2) Feminino "); 
-        conteudoTela.sexoPet = leInteiro();
-        enviarInformacaoCadastroPet(CACHORRO, conteudoTela);
-    }
-
-    public void doarGato() {
-        ConteudoTelaPet conteudoTela = new ConteudoTelaPet();
-        int pet = 2;
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("--------------------------DOÇÃO DE GATO-------------------------");
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("");
-        System.out.print("Qual o nome do seu PET: ");
-        conteudoTela.nomePet = teclado.nextLine();
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("");
-        System.out.print("Qual idade do seu PET: ");
-        conteudoTela.idadePet = leInteiro();
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("Qual a Raça de gato gostaria de doar:");
-        System.out.println("");
-        System.out.println("(1) Persa");
-        System.out.println("(2) Seames");
-        System.out.println("(3) Vira Lata");
-        System.out.println("(4) Azul Russo");
-        conteudoTela.racaPet = leInteiro();
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("Qual sexo do Gato:"); 
-        System.out.println("");
-        System.out.println("(1) Masculino "); 
-        System.out.println("(2) Feminino "); 
-        conteudoTela.sexoPet = leInteiro();
-        enviarInformacaoCadastroPet(GATO, conteudoTela);
-    }
-
-    public void doarPassaro() {
-        ConteudoTelaPet conteudoTela = new ConteudoTelaPet();
-        int pet = 3;
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("------------------------DOAÇÃO DE PASSARO-----------------------");
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("");
-        System.out.print("Qual o nome do seu PET: ");
-        conteudoTela.nomePet = teclado.nextLine();
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("");
-        System.out.print("Qual idade do seu PET: ");
-        conteudoTela.idadePet = leInteiro();
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("Qual a especie de passaro gostaria de doar:");
-        System.out.println("");
-        System.out.println("(1) Cacatua");
-        System.out.println("(2) Calopsita");
-        System.out.println("(3) Canario");
-        System.out.println("(4) Papagaio");
-        System.out.println("(5) Periquito");
-        conteudoTela.racaPet = leInteiro();
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("Qual sexo do Passaro:"); 
-        System.out.println("");
-        System.out.println("(1) Masculino "); 
-        System.out.println("(2) Feminino "); 
-        conteudoTela.sexoPet = leInteiro();
-        enviarInformacaoCadastroPet(PASSARO, conteudoTela);
-    }
+//    public void doarDog() {
+//        ConteudoTelaPet conteudoTela = new ConteudoTelaPet();
+//        int pet = 1;
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("--------------------------DOAÇÃO DE CÃO-------------------------");
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("");
+//        System.out.print("Qual o nome do seu PET: ");
+//        conteudoTela.nomePet = teclado.nextLine();
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("");
+//        System.out.print("Qual idade do seu PET: ");
+//        conteudoTela.idadePet = leInteiro();
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("Qual a raça de cachorro gostaria de doar:");
+//        System.out.println("");
+//        System.out.println("(1) Pastor Alemão");
+//        System.out.println("(2) Labrador");
+//        System.out.println("(3) Buldogle");
+//        System.out.println("(4) Beagle");
+//        System.out.println("(5) Poodle");
+//        conteudoTela.racaPet = leInteiro();
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("Qual sexo do Cão:"); 
+//        System.out.println("");
+//        System.out.println("(1) Masculino "); 
+//        System.out.println("(2) Feminino "); 
+//        conteudoTela.sexoPet = leInteiro();
+//        enviarInformacaoCadastroPet(CACHORRO, conteudoTela);
+//    }
+//
+//    public void doarGato() {
+//        ConteudoTelaPet conteudoTela = new ConteudoTelaPet();
+//        int pet = 2;
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("--------------------------DOÇÃO DE GATO-------------------------");
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("");
+//        System.out.print("Qual o nome do seu PET: ");
+//        conteudoTela.nomePet = teclado.nextLine();
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("");
+//        System.out.print("Qual idade do seu PET: ");
+//        conteudoTela.idadePet = leInteiro();
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("Qual a Raça de gato gostaria de doar:");
+//        System.out.println("");
+//        System.out.println("(1) Persa");
+//        System.out.println("(2) Seames");
+//        System.out.println("(3) Vira Lata");
+//        System.out.println("(4) Azul Russo");
+//        conteudoTela.racaPet = leInteiro();
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("Qual sexo do Gato:"); 
+//        System.out.println("");
+//        System.out.println("(1) Masculino "); 
+//        System.out.println("(2) Feminino "); 
+//        conteudoTela.sexoPet = leInteiro();
+//        enviarInformacaoCadastroPet(GATO, conteudoTela);
+//    }
+//
+//    public void doarPassaro() {
+//        ConteudoTelaPet conteudoTela = new ConteudoTelaPet();
+//        int pet = 3;
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("------------------------DOAÇÃO DE PASSARO-----------------------");
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("");
+//        System.out.print("Qual o nome do seu PET: ");
+//        conteudoTela.nomePet = teclado.nextLine();
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("");
+//        System.out.print("Qual idade do seu PET: ");
+//        conteudoTela.idadePet = leInteiro();
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("Qual a especie de passaro gostaria de doar:");
+//        System.out.println("");
+//        System.out.println("(1) Cacatua");
+//        System.out.println("(2) Calopsita");
+//        System.out.println("(3) Canario");
+//        System.out.println("(4) Papagaio");
+//        System.out.println("(5) Periquito");
+//        conteudoTela.racaPet = leInteiro();
+//        System.out.println("----------------------------------------------------------------");
+//        System.out.println("Qual sexo do Passaro:"); 
+//        System.out.println("");
+//        System.out.println("(1) Masculino "); 
+//        System.out.println("(2) Feminino "); 
+//        conteudoTela.sexoPet = leInteiro();
+//        enviarInformacaoCadastroPet(PASSARO, conteudoTela);
+//    }
     
      
 
-    public void enviarInformacaoAdocao(int pet,int opcaoRaca, int opcaoSexo) {
-        ctrlPet.adocao(pet, opcaoRaca, opcaoSexo);
-    }
+//    public void enviarInformacaoAdocao(int pet,int opcaoRaca, int opcaoSexo) {
+//        ctrlPet.adocao(pet, opcaoRaca, opcaoSexo);
+//    }
 
-    private void enviarInformacaoCadastroPet(int pet, ConteudoTelaPet conteudoTela) {
-        switch(pet){
-            case CACHORRO: 
-                ctrlPet.cadastroDog(conteudoTela);
-                break;
-            case GATO:
-                ctrlPet.cadastroGato(conteudoTela);
-                break;
-             case PASSARO:
-                ctrlPet.cadastroPassaro(conteudoTela);
-                break;    
-        }
-    }
+//    private void enviarInformacaoCadastroPet(int pet, ConteudoTelaPet conteudoTela) {
+//        switch(pet){
+//            case CACHORRO: 
+//                ctrlPet.cadastroDog(conteudoTela);
+//                break;
+//            case GATO:
+//                ctrlPet.cadastroGato(conteudoTela);
+//                break;
+//             case PASSARO:
+//                ctrlPet.cadastroPassaro(conteudoTela);
+//                break;    
+//        }
+//    }
 
     public void mostraListaPets(int pet, ArrayList<ConteudoTelaPet> listagemPets) {
  

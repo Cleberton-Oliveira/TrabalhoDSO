@@ -1,28 +1,31 @@
 package Entidade;
 
+import java.util.EnumSet;
+
 
 public class Cachorro extends Animal{
       private int  raca; 
 
     
-
-
-    
-    
     public enum RACACACHORRO  {
-        PASTOR_ALEMAO(1),
-        LABRADOR(2),
-        BULDOGLE(3),
-        BEAGLE(4),
-        POODLE(5);  
+        PASTOR_ALEMAO("PASTOR_ALEMAO"),
+        LABRADOR("LABRADOR"),
+        BULDOGLE("BULDOGLE"),
+        BEAGLE("BEAGLE"),
+        POODLE("POODLE");  
         
-        public final int id;
+        public final String mensagem;
         
-        RACACACHORRO(int idRacaCachorro){
-            id = idRacaCachorro;
+         
+        RACACACHORRO(String raca){
+            mensagem = raca;
         }
+        
+        
+        
     }
-   
+    
+    
     public Cachorro(String nome, int idade, int raca, int sexo) {
         super(nome,sexo,idade);
         this.nome = nome;
@@ -67,7 +70,7 @@ public class Cachorro extends Animal{
     public void setSexo(int sexo) {
         this.sexo = sexo;
     }
-    @Override
+   @Override
     public String getEspecie() {
         int id = raca;    
         switch(id){
@@ -84,6 +87,5 @@ public class Cachorro extends Animal{
           }
           return "Erro ao cadastrar Cachorro";
     }
-
     
 }

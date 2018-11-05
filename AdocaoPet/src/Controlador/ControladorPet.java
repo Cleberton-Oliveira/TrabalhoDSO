@@ -5,12 +5,14 @@ import Entidade.ConteudoTelaPet;
 import Entidade.Cachorro;
 import Entidade.Gato;
 import Entidade.Passaro;
-import Telas.TelaPets;
+import TelaPet.EscolhaPet;
+import TelaPet.TelaPets;
 import java.util.ArrayList;
 
 public class ControladorPet {
     private ControladorPrincipal ctrlPrincipal;
     private TelaPets telaPets;
+    private EscolhaPet escolhaPet;
     private ArrayList<Cachorro> cachorros;
     private ArrayList<Gato> gatos;
     private ArrayList<Passaro> passaros;
@@ -20,6 +22,7 @@ public class ControladorPet {
     public ControladorPet(ControladorPrincipal ctrlPrincipal){
         this.ctrlPrincipal = ctrlPrincipal;
         this.telaPets = new TelaPets(this);
+        this.escolhaPet = new EscolhaPet(this);
         this.cachorros = new ArrayList<>();
         this.gatos = new ArrayList<>();
         this.passaros = new ArrayList<>();
@@ -50,77 +53,77 @@ public class ControladorPet {
 
     }
 
-    public void doarPet(int opcao) {
-                  switch(opcao){
-            case CACHORRO: 
-                telaPets.doarDog();
-                break;
-            case GATO:
-                telaPets.doarGato();
-                break;
-             case PASSARO:
-                telaPets.doarPassaro();
-                break;    
-        }
-    }
-    public void adocao(int pet, int opcaoRaca, int opcaoSexo) {
-        ArrayList<ConteudoTelaPet> listagemPets = new ArrayList<ConteudoTelaPet>();
-   
-               switch(pet){
-            case CACHORRO: 
-                for(Cachorro cachorro: cachorros){
-                    if(opcaoRaca == cachorro.getRaca() && opcaoSexo == cachorro.getSexo()){
-                       listagemPets.add(empacotaCachorro(cachorro));
-                    }
-                }
-                telaPets.mostraListaPets(pet, listagemPets);
-                break;
-            case GATO:
-                 for(Gato gato: gatos){
-                    if(opcaoRaca == gato.getRaca()  && opcaoSexo == gato.getSexo()){
-                       listagemPets.add(empacotaGato(gato));
-                    }
-                }
-                telaPets.mostraListaPets(pet, listagemPets);
-                telaPets.doarGato();
-                break;
-             case PASSARO:
-                  for(Passaro passaro: passaros){
-                    if(opcaoRaca == passaro.getRaca() && opcaoSexo == passaro.getSexo()){
-                       listagemPets.add(empacotaPassaro(passaro));
-                    }
-                }
-                telaPets.mostraListaPets(pet, listagemPets);
-                telaPets.doarPassaro();
-                break; 
-        
-        
-          }
-    }
+//    public void doarPet(int opcao) {
+//                  switch(opcao){
+//            case CACHORRO: 
+//                telaPets.doarDog();
+//                break;
+//            case GATO:
+//                telaPets.doarGato();
+//                break;
+//             case PASSARO:
+//                telaPets.doarPassaro();
+//                break;    
+//        }
+//    }
+//    public void adocao(int pet, int opcaoRaca, int opcaoSexo) {
+//        ArrayList<ConteudoTelaPet> listagemPets = new ArrayList<ConteudoTelaPet>();
+//   
+//               switch(pet){
+//            case CACHORRO: 
+//                for(Cachorro cachorro: cachorros){
+//                    if(opcaoRaca == cachorro.getRaca() && opcaoSexo == cachorro.getSexo()){
+//                       listagemPets.add(empacotaCachorro(cachorro));
+//                    }
+//                }
+//                telaPets.mostraListaPets(pet, listagemPets);
+//                break;
+//            case GATO:
+//                 for(Gato gato: gatos){
+//                    if(opcaoRaca == gato.getRaca()  && opcaoSexo == gato.getSexo()){
+//                       listagemPets.add(empacotaGato(gato));
+//                    }
+//                }
+//                telaPets.mostraListaPets(pet, listagemPets);
+//                telaPets.doarGato();
+//                break;
+//             case PASSARO:
+//                  for(Passaro passaro: passaros){
+//                    if(opcaoRaca == passaro.getRaca() && opcaoSexo == passaro.getSexo()){
+//                       listagemPets.add(empacotaPassaro(passaro));
+//                    }
+//                }
+//                telaPets.mostraListaPets(pet, listagemPets);
+//                telaPets.doarPassaro();
+//                break; 
+//        
+//        
+//          }
+//    }
     
 
-    public void cadastroDog(ConteudoTelaPet conteudoTela) {
-        Cachorro cachorro = desempacotaCachorro(conteudoTela);
-        cachorros.add(cachorro);
-        ctrlPrincipal.doaCachorro(cachorro);   
-        ctrlPrincipal.registroSucesso();
-    }
-
-    public void cadastroGato(ConteudoTelaPet conteudoTela) {
-        Gato gato = desempacotaGato(conteudoTela);
-        gatos.add(gato);
-        ctrlPrincipal.doaGato(gato);   
-        ctrlPrincipal.registroSucesso();
-    }
-
-    public void cadastroPassaro(ConteudoTelaPet conteudoTela) {
-        Passaro passaro = desempacotaPassaro(conteudoTela);
-        passaros.add(passaro);
-        ctrlPrincipal.doaPassaro(passaro);   
-        ctrlPrincipal.registroSucesso();
-    }
-    
-    
+//    public void cadastroDog(ConteudoTelaPet conteudoTela) {
+//        Cachorro cachorro = desempacotaCachorro(conteudoTela);
+//        cachorros.add(cachorro);
+//        ctrlPrincipal.doaCachorro(cachorro);   
+//        ctrlPrincipal.registroSucesso();
+//    }
+//
+//    public void cadastroGato(ConteudoTelaPet conteudoTela) {
+//        Gato gato = desempacotaGato(conteudoTela);
+//        gatos.add(gato);
+//        ctrlPrincipal.doaGato(gato);   
+//        ctrlPrincipal.registroSucesso();
+//    }
+//
+//    public void cadastroPassaro(ConteudoTelaPet conteudoTela) {
+//        Passaro passaro = desempacotaPassaro(conteudoTela);
+//        passaros.add(passaro);
+//        ctrlPrincipal.doaPassaro(passaro);   
+//        ctrlPrincipal.registroSucesso();
+//    }
+//    
+//    
     
     
     
@@ -147,7 +150,7 @@ public class ControladorPet {
     }
     
     public void menuPrincipal() {
-        ctrlPrincipal.fazerLogin();
+        ctrlPrincipal.menu();
     }
     
     public ArrayList<Animal> adocoesUsuario(){
@@ -206,5 +209,9 @@ public class ControladorPet {
             }
         }
        menuPrincipal();
+    }
+
+    public void telaAdotaPet() {
+        escolhaPet.exibe();
     }
 }

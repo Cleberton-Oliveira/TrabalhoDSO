@@ -6,8 +6,11 @@ import Entidade.ConteudoTelaUsuario;
 import Entidade.Gato;
 import Entidade.Passaro;
 import Entidade.Usuario;
-import Telas.TelaUsuario;
+import TelaUsuario.CriarUsuario;
+import TelaUsuario.Login;
+import TelaUsuario.TelaUsuario;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class ControladorUsuario {
@@ -15,20 +18,25 @@ public class ControladorUsuario {
     private TelaUsuario telaUsuario;
     private ArrayList<Usuario> usuarios;
     private int usuarioLogado; 
+    private Login login;
+    private CriarUsuario criarUsuario;
     
     public ControladorUsuario(ControladorPrincipal ctrlPrincipal){
         this.ctrlPrincipal = ctrlPrincipal;
         this.telaUsuario = new TelaUsuario(this);
+    
         this.usuarios = new ArrayList<>();
+        this.login =  new Login(this);
+       this.criarUsuario = new CriarUsuario(this);
         
     }
             
     public void fazerLoginTela() {
-        telaUsuario.exibeFazerLogin();
+        login.exibe();
     }
 
-    public void fazerCadastroUsuarioTela() {
-        telaUsuario.exibeCadastraUsuario();
+    public void fazerCadastroUsuario() {
+        criarUsuario.exibe();
     }
 
 
@@ -37,10 +45,13 @@ public class ControladorUsuario {
             String loginDeUsuarios = usuario.getLogin();
             if(loginDeUsuarios.equals(loginUsuario)){
                 usuarioLogado = usuarios.lastIndexOf(usuario);
-                ctrlPrincipal.fazerLogin();  
+                    login.fecha();
+                    ctrlPrincipal.menu();
+                break;
             }
         }
-        telaUsuario.erroLogin();
+        login.fecha();
+        login.erroLogin();
     }
     
     public void addUsuario(Usuario usuario){
@@ -51,13 +62,15 @@ public class ControladorUsuario {
         String cpf = conteudoTela.cpfUsuario;
         for(Usuario usuario: usuarios){
             if(cpf.equals(usuario.getCpf())){
-                telaUsuario.cpfJaCadastrado();
+                criarUsuario.fecha();
+                criarUsuario.erro();
                 break;
             }
         }
         Usuario usuario = desempacota(conteudoTela);
         usuarios.add(usuario);
-        telaUsuario.exibeContaCriadaComSucesso();
+        criarUsuario.fecha();
+        login.contaCriadaComSucesso();
                 
     }
     private Usuario desempacota(ConteudoTelaUsuario conteudoTela) {
@@ -83,19 +96,19 @@ public class ControladorUsuario {
         }
     }
     public void telaPrincipal() {
-        ctrlPrincipal.fazerLogin();
+        ctrlPrincipal.menu();
     }
     
     public void mudarSenha(String senha){
         Usuario usuario = usuarios.get(usuarioLogado);
         usuario.setSenha(senha);
-        ctrlPrincipal.fazerLogin();
+        ctrlPrincipal.menu();
     }
     
     public void mudarNome(String nome){
       Usuario usuario = usuarios.get(usuarioLogado);
       usuario.setNome(nome);
-      ctrlPrincipal.fazerLogin();
+      ctrlPrincipal.menu();
     }
         
     public void mudarCpf(String cpf){
@@ -107,7 +120,7 @@ public class ControladorUsuario {
         }
       Usuario usuario = usuarios.get(usuarioLogado);
       usuario.setCpf(cpf);
-      ctrlPrincipal.fazerLogin();
+      ctrlPrincipal.menu();
     }
     
     public void adocaoCachorro(Cachorro cachorro){
@@ -149,4 +162,9 @@ public class ControladorUsuario {
     usuarios.remove(usuario);
     ctrlPrincipal.iniciaPrograma();
     }  
+
+    public void iniciar() {
+        login.fecha();
+        ctrlPrincipal.iniciaPrograma();
+    }
 }

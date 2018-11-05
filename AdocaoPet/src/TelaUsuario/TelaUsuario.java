@@ -1,4 +1,4 @@
-package Telas;
+package TelaUsuario;
 
 import Controlador.ControladorUsuario;
 import Entidade.Animal;
@@ -6,16 +6,31 @@ import Entidade.Cachorro;
 import java.util.Scanner;
 import Entidade.ConteudoTelaUsuario;
 import Entidade.Usuario;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
-public class TelaUsuario {
+public class TelaUsuario extends JFrame{
     private ControladorUsuario ctrlUsuario;
-    private Scanner teclado;
+    private Scanner teclado;  private JLabel lbTexto;
+    private JButton btOK;
+    private JButton btCancel;
+    private JTextField tfNome;          
+    private GerenciadorBotoes btManager;
     
     public TelaUsuario(ControladorUsuario ctrlUsuario){
         this.ctrlUsuario = ctrlUsuario;
         this.teclado = new Scanner(System.in);
+        btManager = new GerenciadorBotoes();  
     }
    
         private int leInteiro() {
@@ -30,16 +45,54 @@ public class TelaUsuario {
     }
     
     public void exibeFazerLogin() {
-        System.out.println("");
-        System.out.println("-------------------------FAZER LOGIN----------------------------");
-        System.out.println("----------------------------------------------------------------");
-        System.out.print("CPF: ");
-        String cpf = teclado.nextLine();
-        System.out.print("Senha: ");
-        String senha = teclado.nextLine();
-        System.out.println("----------------------------------------------------------------");
-        String loginUsuario = cpf + senha;
-        ctrlUsuario.logar(loginUsuario);
+        Container container = getContentPane();
+        container.setLayout(new GridBagLayout());    
+        GridBagConstraints c = new GridBagConstraints();
+        
+        lbTexto = new JLabel("FAZER LOGIN");
+        c.gridx =0;
+        c.gridy =0;
+        container.add(lbTexto, c);  
+         
+        lbTexto = new JLabel("CPF: ");
+        c.gridx =0;
+        c.gridy =1;
+        container.add(lbTexto, c);  
+       
+        tfNome = new JTextField();
+        c.gridx = 1;
+        c.gridy = 1;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        container.add(tfNome, c);
+        
+        lbTexto = new JLabel("Senha: ");
+        c.gridx = 0;
+        c.gridy = 2;
+        container.add(lbTexto, c);
+        
+        tfNome = new JTextField();
+        c.gridx = 1;
+        c.gridy = 2;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        container.add(tfNome, c);
+        
+        btCancel = new JButton("Cancelar");
+        c.gridx = 0;
+        c.gridy = 3;
+        btCancel.addActionListener(btManager); 
+        container.add(btCancel, c);
+        
+        btOK = new JButton("Entrar");
+        c.gridx = 1;
+        c.gridy = 3;
+        btOK.addActionListener(btManager);
+        container.add(btOK, c);
+          
+        setSize(700, 370);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible( true );
+    
     }
     
     public void erroLogin() {
@@ -220,5 +273,15 @@ public class TelaUsuario {
         System.out.println("Já existe Usuario cadastrado com esse CPF");
         System.out.println("");
         ctrlUsuario.telaPrincipal();
+    }
+    
+    
+        private class GerenciadorBotoes implements ActionListener{
+     
+        @Override
+        public void actionPerformed(ActionEvent ae){
+            JOptionPane.showMessageDialog(null, "Botão Pressionado: " + ae.getActionCommand(), "Titulo", 2);
+        }
+        
     }
 }

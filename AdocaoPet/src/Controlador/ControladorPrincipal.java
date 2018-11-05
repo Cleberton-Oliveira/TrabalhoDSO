@@ -1,29 +1,38 @@
 package Controlador;
-
-import Telas.TelaPrincipal;
 import Entidade.Animal;
 import Entidade.Cachorro;
 import Entidade.Gato;
 import Entidade.Passaro;
+import TelaUsuario.Login;
+import TelaPrincipal.Iniciar;
+import TelaPrincipal.Menu;
 import java.util.ArrayList;
 
 
 public class ControladorPrincipal {
-    
+    private static ControladorPrincipal instancia;
     private ControladorUsuario ctrlUsuario;
-    private TelaPrincipal telaPrincipal;
+    private Iniciar iniciar;
+    private Login login;
+    private Menu menu;
     private ControladorPet ctrlPet;
-    
     private final int CACHORRO=1,GATO=2, PASSARO=3;
 
-   
     
-    public ControladorPrincipal() {
+    private ControladorPrincipal() {
         this.ctrlUsuario = new ControladorUsuario(this);
-        this.telaPrincipal =  new TelaPrincipal(this);
         this.ctrlPet = new ControladorPet(this);
+        this.iniciar =  new Iniciar(this);
+        this.menu =  new Menu(this);
 
     }
+    public static ControladorPrincipal getInstancia(){
+        if(instancia == null){
+            instancia = new ControladorPrincipal();
+        }
+        return instancia;
+    }
+    
     public ControladorUsuario getCtrlUsuario(){
         return this.ctrlUsuario;
     } 
@@ -32,38 +41,39 @@ public class ControladorPrincipal {
     } 
     
     public void iniciaPrograma(){
-        telaPrincipal.exibeTelaLogin();
+        iniciar.exibe();
     }
 
     public void executaOpcaoLogin(int opcao) {
         switch(opcao){
-                    case 1 : ctrlUsuario.fazerLoginTela();
+                    case 1 : iniciar.fecha();
+                        ctrlUsuario.fazerLoginTela();
                         break;
-                    case 2 : ctrlUsuario.fazerCadastroUsuarioTela();
+                    case 2 : iniciar.fecha();
+                        ctrlUsuario.fazerCadastroUsuario();
                         break;
         }
     }
 
-    public void fazerLogin() {
-          telaPrincipal.exibeTelaPrincipal();
+    public void menu(){
+        menu.exibe();
     }
-
-    public void historico(){
-      ctrlUsuario.historicoUsuario();
-      telaPrincipal.exibeTelaPrincipal();
-    }
+//
+//    public void historico(){
+//      ctrlUsuario.historicoUsuario();
+//      telaPrincipal.exibeTelaPrincipal();
+//    }
 
     public void adotarPet(int opcao) {
         ctrlPet.adotarPet(opcao);
     }
 
-    public void doarPet(int opcao) {
-        ctrlPet.doarPet(opcao);
-    }
-
-    public void registroSucesso() {
-        telaPrincipal.registroSucessoTela();
-    }
+//    public void doarPet(int opcao) {
+//        ctrlPet.doarPet(opcao);
+//    }
+//    public void registroSucesso() {
+//        telaPrincipal.registroSucessoTela();
+//    }
 
    
     public void mudaSenha(String senha) {
@@ -108,7 +118,13 @@ public class ControladorPrincipal {
     }
 
     public void apagaConta() {
+        menu.fecha();
         ctrlUsuario.apagaConta();
+    }
+
+    public void adotaPet() {
+        menu.fecha();
+        ctrlPet.telaAdotaPet();
     }
     
 }
